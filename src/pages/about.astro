@@ -1,0 +1,32 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Container from '@/components/container.astro'
+// import { Image, getImage } from 'astro:assets'
+// import { authors } from '@/data/authors'
+import Pagetitle from '@/components/pagetitle.astro'
+import Link from '@/components/ui/link.astro'
+---
+
+<Layout title="About">
+	<Container>
+		<Pagetitle>
+			<Fragment slot="title">關於這裡</Fragment>
+			<Fragment slot="desc">這年頭最稀缺的資源，不是金錢，不是時間，而是注意力。</Fragment>
+		</Pagetitle>
+
+		<div class="mx-auto max-w-xl text-center mt-14">
+			<p class="text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+				您是否有過這樣的經驗？打開 YouTube
+				Podcast，想學點什麼，結果一集就是一兩個小時，聽著聽著就放空，或是根本沒時間聽完？<br /><br />
+				嘿，我是「懶口袋」Lazy Pod！我深知現代人時間寶貴，但又渴望持續學習與成長。<br
+				/>因此，我決定打造一個專屬您的高效學習工具。 在「懶口袋」裡，我將扮演您的專屬播客精華提煉師。我會仔細聆聽
+				YouTube 上的熱門 Podcast 節目，將那些冗長的對話、分散的資訊，轉化為清晰、條理分明的文章重點。<br /><br
+				/>從此，您不再需要煩惱沒時間聽 Podcast，只需花費少許時間閱讀，就能輕鬆獲取節目精華。
+				跟我一起，讓學習變得更輕鬆、更有效率吧！
+			</p>
+			<div class="mt-8">
+				<!-- <Link href="/contact" style="primary">Get in touch</Link> -->
+			</div>
+		</div>
+	</Container>
+</Layout>
