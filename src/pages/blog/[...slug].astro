@@ -29,18 +29,24 @@ const { post } = Astro.props
 const { Content, remarkPluginFrontmatter } = await post.render()
 
 const author = authors.find((item) => item.slug === post.data.author) as Author
-const postCategories = post.data.categories.map(
-	(slug) => categories.find((item) => item.slug === slug)
-).filter(Boolean) as Category[]
+const postCategories = post.data.categories
+	.map((slug) => categories.find((item) => item.slug === slug))
+	.filter(Boolean) as Category[]
 ---
 
-<Layout title={post.data.title} desc={post.data.excerpt} ogimage={post.data.image}>
+<Layout
+	title={post.data.title}
+	desc={post.data.excerpt}
+	ogimage={post.data.image}
+>
 	<Container>
 		<div class="max-w-screen-md mx-auto">
 			<div class="text-center flex gap-2 justify-center">
-				{postCategories.map((category) => (
-					<Label theme={category.color}>{category.title}</Label>
-				))}
+				{
+					postCategories.map((category) => (
+						<Label theme={category.color}>{category.title}</Label>
+					))
+				}
 			</div>
 
 			<h1
@@ -71,7 +77,10 @@ const postCategories = post.data.categories.map(
 							{author.name}
 						</p>
 						<div class="flex items-center space-x-2 text-sm">
-							<time class="text-gray-500 dark:text-gray-400" datetime={post.data.publishDate}>
+							<time
+								class="text-gray-500 dark:text-gray-400"
+								datetime={post.data.publishDate}
+							>
 								{getFormattedDate(post.data.publishDate)}
 							</time>
 							<!-- <span>
@@ -85,7 +94,9 @@ const postCategories = post.data.categories.map(
 		</div>
 	</Container>
 
-	<div class="relative z-0 max-w-screen-lg mx-auto overflow-hidden lg:rounded-lg aspect-video">
+	<div
+		class="relative z-0 max-w-screen-lg mx-auto overflow-hidden lg:rounded-lg aspect-video"
+	>
 		{
 			post.data.image && (
 				<Picture
@@ -104,11 +115,17 @@ const postCategories = post.data.categories.map(
 
 	<Container>
 		<article class="max-w-screen-md mx-auto">
-			<div class="mx-auto my-3 prose prose-base dark:prose-invert prose-a:text-blue-600">
+			<div
+				class="mx-auto my-3 prose prose-base dark:prose-invert prose-a:text-blue-600"
+			>
 				<Content />
 
 				<div class="flex flex-wrap items-center w-full gap-3 md:w-auto">
-					{post.data.tags.map((tag) => <span class="text-sm text-gray-500">#{tag}</span>)}
+					{
+						post.data.tags.map((tag) => (
+							<span class="text-sm text-gray-500">#{tag}</span>
+						))
+					}
 				</div>
 			</div>
 

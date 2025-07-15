@@ -6,4 +6,8 @@ export const latestPosts = (
 	await getCollection('blog', ({ data }) => {
 		return data.draft !== true
 	})
-).sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf())
+).sort(
+	(a, b) =>
+		new Date(b.data.publishDate).valueOf() -
+		new Date(a.data.publishDate).valueOf()
+)
