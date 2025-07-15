@@ -13,11 +13,11 @@ export interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
 
-const { title, desc, ogimage = '/opengraph.jpg' } = Astro.props
+const { title, desc, ogimage = '/assets/blog/blackhole.jpg' } = Astro.props
 
 const resolvedOGImage = checkImageUrl(ogimage, Astro.site)
 
-const makeTitle = title ? `${title} | 懶口袋` : '懶口袋'
+const makeTitle = title ? `${title} | 懶播` : '懶播'
 ---
 
 <!doctype html>
@@ -29,13 +29,13 @@ const makeTitle = title ? `${title} | 懶口袋` : '懶口袋'
 		<meta name="generator" content={Astro.generator} />
 		<SEO
 			title={makeTitle}
-			description={desc || '懶口袋是個播客摘要平台'}
+			description={desc || '懶播 - 你的播客摘要平台'}
 			canonical={canonicalURL}
 			openGraph={{
 				basic: {
 					url: canonicalURL,
 					type: 'website',
-					title: `懶口袋 - 播客摘要平台`,
+					title: `懶播 - 播客摘要平台`,
 					image: resolvedOGImage,
 				},
 				image: {
