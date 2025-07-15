@@ -17,7 +17,7 @@ const { title, desc, ogimage = '/opengraph.jpg' } = Astro.props
 
 const resolvedOGImage = checkImageUrl(ogimage, Astro.site)
 
-const makeTitle = title ? title + ' | ' + '懶口袋' : '懶口袋 — Blog Website built with Astro'
+const makeTitle = title ? `${title} | 懶口袋` : '懶口袋'
 ---
 
 <!doctype html>
@@ -29,22 +29,17 @@ const makeTitle = title ? title + ' | ' + '懶口袋' : '懶口袋 — Blog Webs
 		<meta name="generator" content={Astro.generator} />
 		<SEO
 			title={makeTitle}
-			description={desc || '懶口袋 is a Blog Starter built with Astro.'}
+			description={desc || '懶口袋是個播客摘要平台'}
 			canonical={canonicalURL}
-			twitter={{
-				creator: '@/surjithctly',
-				site: '@/web3templates',
-				card: 'summary_large_image',
-			}}
 			openGraph={{
 				basic: {
 					url: canonicalURL,
 					type: 'website',
-					title: `懶口袋 - Blog Starter Template for Astro`,
+					title: `懶口袋 - 播客摘要平台`,
 					image: resolvedOGImage,
 				},
 				image: {
-					alt: '懶口袋 Screenshot',
+					alt: 'lazypod',
 				},
 			}}
 		/>
