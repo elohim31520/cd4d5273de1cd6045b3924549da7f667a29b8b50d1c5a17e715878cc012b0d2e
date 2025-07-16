@@ -15,5 +15,7 @@ export default defineConfig({
 		extendDefaultPlugins: true,
 	},
 	integrations: [tailwind(), mdx(), sitemap(), icon()],
-	port: '4322',
+	server: {
+		port: 4322,
+	},
 })
