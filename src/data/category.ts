@@ -62,4 +62,29 @@ export const categories: Props[] = [
 		slug: 'art-culture',
 		color: 'pink',
 	},
+	{
+		title: 'Mental Health',
+		slug: 'mental-health',
+		color: 'pink',
+	},
+	{
+		title: 'Culture',
+		slug: 'culture',
+		color: 'yellow',
+	},
+	{
+		title: 'Psychology',
+		slug: 'psychology',
+		color: 'purple',
+	},
+	{
+		title: 'Crypto',
+		slug: 'crypto',
+		color: 'blue',
+	},
+	{
+		title: 'Investment',
+		slug: 'investment',
+		color: 'blue',
+	},
 ]
