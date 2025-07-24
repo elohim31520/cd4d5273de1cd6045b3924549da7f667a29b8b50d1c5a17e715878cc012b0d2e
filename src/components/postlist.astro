@@ -9,9 +9,15 @@ import type { Category } from '@/data/category'
 import { categories } from '@/data/category'
 import { getFormattedDate } from '@/utils/all'
 import { Icon } from 'astro-icon/components'
+import elsaImage from '@/assets/authors/elsa.png'
 
 const { post, aspect, preloadImage } = Astro.props
-const author = authors.find((item) => item.slug === post.data.author) as Author
+const author = {
+	name: post.data.author,
+	slug: post.data.author,
+	image: post.data.authorImage || elsaImage,
+	bio: post.data.authorBio || '自己去google',
+}
 const postCategories = post.data.categories
 	.map((slug) => categories.find((item) => item.slug === slug))
 	.filter(Boolean) as Category[]
@@ -44,7 +50,7 @@ const postCategories = post.data.categories
 		</a>
 	</div>
 
-	<div class="flex gap-2">
+	<div class="flex gap-2 flex-wrap">
 		{
 			postCategories.map((category) => (
 				<a href="#">
