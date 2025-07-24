@@ -12,7 +12,7 @@ import type { CollectionEntry } from 'astro:content'
 
 import type { Author } from '@/data/authors'
 import type { Category } from '@/data/category'
-
+import elsaImage from '@/assets/authors/elsa.png'
 type Props = CollectionEntry<'blog'>
 
 export async function getStaticPaths() {
@@ -28,7 +28,12 @@ const { post } = Astro.props
 
 const { Content, remarkPluginFrontmatter } = await post.render()
 
-const author = authors.find((item) => item.slug === post.data.author) as Author
+const author = {
+	name: post.data.author,
+	slug: post.data.author,
+	image: post.data.authorImage || elsaImage,
+	bio: post.data.authorBio || '自己去google',
+} as Author
 const postCategories = post.data.categories
 	.map((slug) => categories.find((item) => item.slug === slug))
 	.filter(Boolean) as Category[]
