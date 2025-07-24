@@ -4,7 +4,7 @@ import Footer from '@/components/footer.astro'
 import Navbar from '@/components/navbar.astro'
 import { checkImageUrl } from '@/utils/all'
 import { SEO } from 'astro-seo'
-
+import SlideNav from '@/components/slideNav.astro'
 export interface Props {
 	title?: string
 	desc?: string
@@ -46,6 +46,7 @@ const makeTitle = title ? `${title} | 懶播` : '懶播'
 	</head>
 	<body>
 		<Navbar />
+		<SlideNav />
 		<slot />
 		<Footer />
 		<style is:global>

@@ -109,32 +109,5 @@ const mobilemenu: Menu[] = [...leftmenu, ...rightmenu]
 				}
 			</div>
 		</div>
-		<div class="navmenu-toggle hidden">
-			<div
-				class="flex flex-col items-center justify-start order-2 w-full md:hidden"
-			>
-				{
-					mobilemenu.map((item, index) => (
-						<a
-							href={item.href}
-							class="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500"
-							target={item.external ? '_blank' : ''}
-							rel={item.external ? 'noopener' : ''}
-						>
-							{item.label}
-						</a>
-					))
-				}
-			</div>
-		</div>
 	</nav>
 </Container>
-
-<script is:inline>
-	const menuButton = document.getElementById('menu')
-	menuButton.addEventListener('click', () => {
-		;[...document.querySelectorAll('.navmenu-toggle')].forEach((Element) => {
-			Element.classList.toggle('hidden')
-		})
-	})
-</script>

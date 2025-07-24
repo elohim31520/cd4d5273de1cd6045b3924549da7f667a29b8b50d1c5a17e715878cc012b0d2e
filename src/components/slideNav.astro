@@ -1,0 +1,81 @@
+---
+interface Menu {
+	label: string
+	href: string
+	external?: boolean
+	badge?: string
+}
+
+const mobilemenu: Menu[] = [
+	{
+		label: '文章',
+		href: '/archive',
+	},
+	{
+		label: '首頁',
+		href: '/',
+	},
+	{
+		label: '關於',
+		href: '/about',
+	},
+]
+---
+
+<div
+	class="navmenu-container pointer-events-none fixed inset-0 z-50 flex justify-end"
+	aria-expanded="false"
+>
+	<div
+		class="navmenu-overlay absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300 ease-in-out"
+	>
+	</div>
+	<div
+		class="navmenu-panel relative z-10 flex h-full w-64 max-w-[85%] flex-col bg-white dark:bg-zinc-900 shadow-lg transition-transform duration-300 ease-in-out translate-x-full"
+	>
+		<div class="flex flex-col items-center justify-start order-2 w-full pt-10">
+			{
+				mobilemenu.map((item, index) => (
+					<a
+						href={item.href}
+						class="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500"
+						target={item.external ? '_blank' : ''}
+						rel={item.external ? 'noopener' : ''}
+					>
+						{item.label}
+					</a>
+				))
+			}
+		</div>
+	</div>
+</div>
+
+<style>
+	.navmenu-container.is-open {
+		pointer-events: auto;
+	}
+	.navmenu-container.is-open .navmenu-overlay {
+		opacity: 1;
+	}
+	.navmenu-container.is-open .navmenu-panel {
+		transform: translateX(0);
+	}
+</style>
+
+<script is:inline>
+	const menuButton = document.getElementById('menu')
+	const menuContainer = document.querySelector('.navmenu-container')
+	const menuOverlay = document.querySelector('.navmenu-overlay')
+
+	const toggleMenu = () => {
+		const isOpen = menuContainer.classList.toggle('is-open')
+		menuContainer.setAttribute('aria-expanded', isOpen)
+	}
+
+	menuButton.addEventListener('click', (e) => {
+		e.stopPropagation()
+		toggleMenu()
+	})
+
+	menuOverlay.addEventListener('click', toggleMenu)
+</script>
