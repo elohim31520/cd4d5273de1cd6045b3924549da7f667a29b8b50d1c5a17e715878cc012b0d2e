@@ -1,7 +1,7 @@
 export interface Props {
 	title: string
 	slug: string
-	color: 'green' | 'blue' | 'orange' | 'purple' | 'pink'
+	color: string
 }
 
 // 定義文章的分類類型
@@ -50,7 +50,7 @@ export const categories: Props[] = [
 	{
 		title: 'Science',
 		slug: 'science',
-		color: 'purple',
+		color: 'yellow',
 	},
 	{
 		title: 'Health',
@@ -86,5 +86,10 @@ export const categories: Props[] = [
 		title: 'Investment',
 		slug: 'investment',
 		color: 'blue',
+	},
+	{
+		title: 'AI',
+		slug: 'ai',
+		color: 'red',
 	},
 ]

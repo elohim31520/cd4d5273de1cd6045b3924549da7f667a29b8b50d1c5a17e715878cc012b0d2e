@@ -70,7 +70,8 @@ const postCategories = post.data.categories
 									alt="Author Photo"
 									width={80}
 									height={80}
-									loading="eager"
+									loading="lazy"
+									decoding="async"
 									class="rounded-full object-cover w-10 h-10"
 								/>
 							)
@@ -111,7 +112,8 @@ const postCategories = post.data.categories
 					width={1024}
 					height={576}
 					alt="Thumbnail"
-					loading="eager"
+					loading="lazy"
+					decoding="async"
 					class="w-full"
 				/>
 			)
