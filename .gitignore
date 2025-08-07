@@ -2,3 +2,5 @@
 node_modules
 /dist
 /src/content
+/src/content/blog/**
+/src/assets/blog/**
