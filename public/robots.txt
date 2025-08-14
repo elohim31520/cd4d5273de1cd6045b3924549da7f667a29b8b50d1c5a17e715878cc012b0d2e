@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lazy-pod.pages.dev/sitemap-0.xml
+Sitemap: https://lazypod.org/sitemap-0.xml

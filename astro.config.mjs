@@ -8,7 +8,7 @@ import icon from 'astro-icon'
 import { remarkReadingTime } from './src/utils/all'
 
 export default defineConfig({
-	site: 'https://lazy-pod.pages.dev/',
+	site: 'https://lazypod.org',
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 		rehypePlugins: ['rehype-plugin-image-native-lazy-loading'],
