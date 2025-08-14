@@ -1,5 +1,5 @@
 import type { ImageMetadata } from 'astro'
-import aimage from '../assets/authors/elsa.png'
+import aimage from '../assets/authors/00020-1353009138.png'
 
 export interface Props {
 	name: string

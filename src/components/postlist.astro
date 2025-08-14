@@ -7,13 +7,13 @@ import type { Category } from '@/data/category'
 import { categories } from '@/data/category'
 import { getFormattedDate } from '@/utils/all'
 import { Icon } from 'astro-icon/components'
-import elsaImage from '@/assets/authors/elsa.png'
+import authorImage from '@/assets/authors/00020-1353009138.png'
 
 const { post, aspect, preloadImage } = Astro.props
 const author = {
 	name: post.data.author,
 	slug: post.data.author,
-	image: post.data.authorImage || elsaImage,
+	image: post.data.authorImage || authorImage,
 	bio: post.data.authorBio || '自己去google',
 }
 const postCategories = post.data.categories
