@@ -18,6 +18,11 @@ export const categories: Props[] = [
 		color: 'blue',
 	},
 	{
+		title: 'Finance',
+		slug: 'finance',
+		color: 'green',
+	},
+	{
 		title: 'Philosophy',
 		slug: 'philosophy',
 		color: 'green',
