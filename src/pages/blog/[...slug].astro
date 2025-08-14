@@ -12,8 +12,9 @@ import type { CollectionEntry } from 'astro:content'
 
 import type { Author } from '@/data/authors'
 import type { Category } from '@/data/category'
-import elsaImage from '@/assets/authors/elsa.png'
-type Props = CollectionEntry<'blog'>
+type Props = {
+	post: CollectionEntry<'blog'>
+}
 
 export async function getStaticPaths() {
 	const blog = await getCollection('blog')
@@ -28,12 +29,8 @@ const { post } = Astro.props
 
 const { Content, remarkPluginFrontmatter } = await post.render()
 
-const author = {
-	name: post.data.author,
-	slug: post.data.author,
-	image: post.data.authorImage || elsaImage,
-	bio: post.data.authorBio || '自己去google',
-} as Author
+const author = authors.find((a) => a.slug === post.data.author) as Author
+
 const postCategories = post.data.categories
 	.map((slug) => categories.find((item) => item.slug === slug))
 	.filter(Boolean) as Category[]
@@ -42,7 +39,9 @@ const postCategories = post.data.categories
 <Layout
 	title={post.data.title}
 	desc={post.data.excerpt}
-	ogimage={post.data.image}
+	ogimage={post.data.image.src}
+	publishDate={post.data.publishDate.toISOString()}
+	author={author.name}
 >
 	<Container>
 		<div class="max-w-screen-md mx-auto">
@@ -67,7 +66,7 @@ const postCategories = post.data.categories
 							author.image && (
 								<Image
 									src={author.image}
-									alt="Author Photo"
+									alt={author.name}
 									width={80}
 									height={80}
 									loading="lazy"
@@ -85,7 +84,7 @@ const postCategories = post.data.categories
 						<div class="flex items-center space-x-2 text-sm">
 							<time
 								class="text-gray-500 dark:text-gray-400"
-								datetime={post.data.publishDate}
+								datetime={post.data.publishDate.toISOString()}
 							>
 								{getFormattedDate(post.data.publishDate)}
 							</time>
@@ -111,7 +110,7 @@ const postCategories = post.data.categories
 					sizes="(max-width: 640px) 90vw, 480px"
 					width={1024}
 					height={576}
-					alt="Thumbnail"
+					alt={post.data.title}
 					loading="lazy"
 					decoding="async"
 					class="w-full"

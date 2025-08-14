@@ -1,7 +1,16 @@
+export type LabelTheme =
+	| 'green'
+	| 'blue'
+	| 'orange'
+	| 'purple'
+	| 'pink'
+	| 'red'
+	| 'yellow'
+
 export interface Props {
 	title: string
 	slug: string
-	color: string
+	color: LabelTheme
 }
 
 // 定義文章的分類類型

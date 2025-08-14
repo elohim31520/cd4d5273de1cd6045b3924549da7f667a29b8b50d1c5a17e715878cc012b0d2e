@@ -9,11 +9,19 @@ export interface Props {
 	title?: string
 	desc?: string
 	ogimage?: string
+	author?: string
+	publishDate?: string
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
 
-const { title, desc, ogimage = '/assets/blog/blackhole.jpg' } = Astro.props
+const {
+	title,
+	desc,
+	ogimage = '/assets/blog/blackhole.jpg',
+	author,
+	publishDate,
+} = Astro.props
 
 const resolvedOGImage = checkImageUrl(ogimage, Astro.site)
 
@@ -35,14 +43,47 @@ const makeTitle = title ? `${title} | 懶播` : '懶播'
 				basic: {
 					url: canonicalURL,
 					type: 'website',
-					title: `懶播 - 播客摘要平台`,
+					title: makeTitle,
 					image: resolvedOGImage,
 				},
 				image: {
-					alt: 'lazypod',
+					alt: makeTitle,
 				},
 			}}
-		/>
+		>
+			{
+				publishDate && author && (
+					<script
+						type="application/ld+json"
+						slot="structured-data"
+						set:html={JSON.stringify({
+							'@context': 'https://schema.org',
+							'@type': 'Article',
+							mainEntityOfPage: {
+								'@type': 'WebPage',
+								'@id': canonicalURL,
+							},
+							headline: title,
+							image: resolvedOGImage,
+							datePublished: publishDate,
+							author: {
+								'@type': 'Person',
+								name: author,
+							},
+							publisher: {
+								'@type': 'Organization',
+								name: '懶播',
+								logo: {
+									'@type': 'ImageObject',
+									url: new URL('/favicon.svg', Astro.site).toString(),
+								},
+							},
+							description: desc,
+						})}
+					/>
+				)
+			}
+		</SEO>
 	</head>
 	<body>
 		<Navbar />
