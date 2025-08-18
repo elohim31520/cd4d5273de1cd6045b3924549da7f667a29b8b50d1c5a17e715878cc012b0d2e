@@ -95,4 +95,16 @@ export const authors: Props[] = [
 		image: aimage,
 		bio: '演化人類學家，專注於研究人類的愛情、親密關係和友誼的科學。',
 	},
+	{
+		name: 'Dr. Tara Swart',
+		slug: 'tara-swart',
+		image: aimage,
+		bio: '神經科學家、精神科醫師與作家，專注於研究大腦優化、心智潛能與身心連結。',
+	},
+	{
+		name: 'Tali Sharot',
+		slug: 'tali',
+		image: aimage,
+		bio: '認知神經科學家，專注於研究人類的樂觀偏見、情感與決策之間的關係。',
+	},
 ]
