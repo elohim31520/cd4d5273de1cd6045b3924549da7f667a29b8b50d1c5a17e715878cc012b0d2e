@@ -107,4 +107,10 @@ export const authors: Props[] = [
 		image: aimage,
 		bio: '認知神經科學家，專注於研究人類的樂觀偏見、情感與決策之間的關係。',
 	},
+	{
+		name: 'David Pinsof',
+		slug: 'david-pinsof',
+		image: aimage,
+		bio: 'David Pinsof 是一位專注於臨床和研究的心理學家，他的工作核心是將科學和心理學療法結合，以提升心理治療的效果。',
+	},
 ]
