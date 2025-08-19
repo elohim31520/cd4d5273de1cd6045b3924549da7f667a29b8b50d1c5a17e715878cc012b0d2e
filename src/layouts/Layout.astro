@@ -26,6 +26,7 @@ const {
 const resolvedOGImage = checkImageUrl(ogimage, Astro.site)
 
 const makeTitle = title ? `${title} | 懶播` : '懶播'
+const adsenseClientId = import.meta.env.PUBLIC_ADSENSE_CLIENT_ID
 ---
 
 <!doctype html>
@@ -84,6 +85,15 @@ const makeTitle = title ? `${title} | 懶播` : '懶播'
 				)
 			}
 		</SEO>
+		{
+			adsenseClientId && (
+				<script
+					async
+					src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
+					crossorigin="anonymous"
+				/>
+			)
+		}
 	</head>
 	<body>
 		<Navbar />
