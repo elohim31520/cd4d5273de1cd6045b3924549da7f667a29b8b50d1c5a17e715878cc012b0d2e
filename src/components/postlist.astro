@@ -8,10 +8,14 @@ import { categories } from '@/data/category'
 import { getFormattedDate } from '@/utils/all'
 import { Icon } from 'astro-icon/components'
 import authorImage from '@/assets/authors/00020-1353009138.png'
+import { authors } from '@/data/authors'
 
 const { post, aspect, preloadImage } = Astro.props
+
 const author = {
-	name: post.data.author,
+	name:
+		authors.find((author) => author.slug === post.data.author)?.name ||
+		post.data.author,
 	slug: post.data.author,
 	image: post.data.authorImage || authorImage,
 	bio: post.data.authorBio || '自己去google',
