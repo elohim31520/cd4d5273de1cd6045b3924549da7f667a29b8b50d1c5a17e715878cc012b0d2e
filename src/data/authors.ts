@@ -113,4 +113,10 @@ export const authors: Props[] = [
 		image: aimage,
 		bio: 'David Pinsof 是一位專注於臨床和研究的心理學家，他的工作核心是將科學和心理學療法結合，以提升心理治療的效果。',
 	},
+	{
+		name: 'Mohnish Pabrai',
+		slug: 'mohnish-pabrai',
+		image: aimage,
+		bio: 'Mohnish Pabrai是一位印度裔美籍的價值投資者、慈善家，同時也是Pabrai Investment Funds的創辦人。',
+	},
 ]
