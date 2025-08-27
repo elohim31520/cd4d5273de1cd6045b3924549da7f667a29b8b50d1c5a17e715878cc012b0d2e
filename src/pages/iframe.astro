@@ -1,0 +1,21 @@
+---
+import Container from '@/components/container.astro'
+import Postlist from '@/components/postlist.astro'
+import Layout2 from '@/layouts/Layout2.astro'
+import Pagetitle from '@/components/pagetitle.astro'
+import { getIframePosts } from '@/utils/content'
+---
+
+<Layout2 title="資訊">
+	<Container>
+		<Pagetitle>
+			<Fragment slot="title">投資理財</Fragment>
+			<Fragment slot="desc"> </Fragment>
+		</Pagetitle>
+		<main>
+			<div class="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3">
+				{getIframePosts.map((post) => <Postlist post={post} aspect="square" />)}
+			</div>
+		</main>
+	</Container>
+</Layout2>

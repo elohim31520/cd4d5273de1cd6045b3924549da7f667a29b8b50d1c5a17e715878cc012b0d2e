@@ -111,4 +111,9 @@ export const categories: Props[] = [
 		slug: 'neuroscience',
 		color: 'red',
 	},
+	{
+		title: 'Info',
+		slug: 'info',
+		color: 'orange',
+	},
 ]

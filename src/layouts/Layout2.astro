@@ -1,0 +1,107 @@
+---
+import '@fontsource-variable/inter'
+import Footer from '@/components/footer.astro'
+import { checkImageUrl } from '@/utils/all'
+import { SEO } from 'astro-seo'
+export interface Props {
+	title?: string
+	desc?: string
+	ogimage?: string
+	author?: string
+	publishDate?: string
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
+
+const {
+	title,
+	desc,
+	ogimage = '/assets/blog/blackhole.jpg',
+	author,
+	publishDate,
+} = Astro.props
+
+const resolvedOGImage = checkImageUrl(ogimage, Astro.site)
+
+const makeTitle = title ? `${title} | 懶播` : '懶播'
+const adsenseClientId = import.meta.env.PUBLIC_ADSENSE_CLIENT_ID
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<SEO
+			title={makeTitle}
+			description={desc || '懶播 - 你的播客摘要平台'}
+			canonical={canonicalURL}
+			openGraph={{
+				basic: {
+					url: canonicalURL,
+					type: 'website',
+					title: makeTitle,
+					image: resolvedOGImage,
+				},
+				image: {
+					alt: makeTitle,
+				},
+			}}
+		>
+			{
+				publishDate && author && (
+					<script
+						type="application/ld+json"
+						slot="structured-data"
+						set:html={JSON.stringify({
+							'@context': 'https://schema.org',
+							'@type': 'Article',
+							mainEntityOfPage: {
+								'@type': 'WebPage',
+								'@id': canonicalURL,
+							},
+							headline: title,
+							image: resolvedOGImage,
+							datePublished: publishDate,
+							author: {
+								'@type': 'Person',
+								name: author,
+							},
+							publisher: {
+								'@type': 'Organization',
+								name: '懶播',
+								logo: {
+									'@type': 'ImageObject',
+									url: new URL('/favicon.svg', Astro.site).toString(),
+								},
+							},
+							description: desc,
+						})}
+					/>
+				)
+			}
+		</SEO>
+		{
+			adsenseClientId && (
+				<script
+					async
+					src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
+					crossorigin="anonymous"
+				/>
+			)
+		}
+	</head>
+	<body>
+		<slot />
+		<Footer />
+		<style is:global>
+			/* Improve Page speed */
+			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+			img {
+				content-visibility: auto;
+			}
+		</style>
+	</body>
+</html>

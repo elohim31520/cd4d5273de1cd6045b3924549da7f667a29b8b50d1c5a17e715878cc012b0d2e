@@ -37,3 +37,13 @@ export const getInvestmentPosts = (
 		new Date(b.data.publishDate).valueOf() -
 		new Date(a.data.publishDate).valueOf()
 )
+
+export const getIframePosts = (
+	await getCollection('blog', ({ data }) => {
+		return data.categories.includes('info')
+	})
+).sort(
+	(a, b) =>
+		new Date(b.data.publishDate).valueOf() -
+		new Date(a.data.publishDate).valueOf()
+)
