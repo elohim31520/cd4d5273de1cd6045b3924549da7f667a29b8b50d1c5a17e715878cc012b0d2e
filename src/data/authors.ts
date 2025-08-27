@@ -119,4 +119,10 @@ export const authors: Props[] = [
 		image: aimage,
 		bio: 'Mohnish Pabrai是一位印度裔美籍的價值投資者、慈善家，同時也是Pabrai Investment Funds的創辦人。',
 	},
+	{
+		name: 'Salim Ismail',
+		slug: 'salim-ismail',
+		image: aimage,
+		bio: 'Salim Ismail 是一位企業家、投資者和作家，他專注於研究技術創新、商業模式和組織變革。',
+	},
 ]
