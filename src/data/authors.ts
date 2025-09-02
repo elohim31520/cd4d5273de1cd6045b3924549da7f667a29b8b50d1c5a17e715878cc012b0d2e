@@ -125,4 +125,10 @@ export const authors: Props[] = [
 		image: aimage,
 		bio: 'Salim Ismail 是一位企業家、投資者和作家，他專注於研究技術創新、商業模式和組織變革。',
 	},
+	{
+		name: 'Lisa Feldman Barrett',
+		slug: 'lisa-feldman-barrett',
+		image: aimage,
+		bio: 'Lisa Feldman Barrett是一位美國心理學家，她的研究核心挑戰了關於情緒是普世且內建反應的傳統觀點，認為情緒是大腦根據個人經驗和當下情境所「建構」出來的',
+	},
 ]
