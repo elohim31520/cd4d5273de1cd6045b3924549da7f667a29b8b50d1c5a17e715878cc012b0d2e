@@ -131,4 +131,10 @@ export const authors: Props[] = [
 		image: aimage,
 		bio: 'Lisa Feldman Barrett是一位美國心理學家，她的研究核心挑戰了關於情緒是普世且內建反應的傳統觀點，認為情緒是大腦根據個人經驗和當下情境所「建構」出來的',
 	},
+	{
+		name: 'Dr. Alan Goldhammer',
+		slug: 'alan-goldhammer',
+		image: aimage,
+		bio: 'Dr. Alan Goldhammer是一位美國醫師，他專注於研究慢性疾病和逆轉慢性疾病的療法。',
+	},
 ]
