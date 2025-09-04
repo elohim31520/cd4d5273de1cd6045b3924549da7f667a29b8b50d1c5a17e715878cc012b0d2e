@@ -1,20 +1,15 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import { createRequire } from 'module'
-
-const require = createRequire(import.meta.url)
-const webp = require('webp-converter')
+import sharp from 'sharp'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-webp.grant_permission()
-
 const CONFIG = {
 	searchDir: path.join(__dirname, '../src/assets/blog'),
 	// WebP 品質 (0-100)
-	quality: 100,
+	quality: 80, // 調整品質以取得更好的壓縮效果
 	// 是否保留原始 PNG 檔案
 	keepOriginal: true,
 	// 輸出資訊
@@ -72,7 +67,24 @@ async function convertToWebp(imagePath) {
 	}
 
 	try {
-		await webp.cwebp(imagePath, webpPath, `-q ${CONFIG.quality}`)
+		const image = sharp(imagePath)
+		const metadata = await image.metadata()
+
+		let imageProcessor = image
+
+		if (metadata.width > 3000) {
+			const newWidth = Math.round(metadata.width * 0.5)
+			imageProcessor = image.resize(newWidth)
+			if (CONFIG.verbose) {
+				console.log(
+					`圖片將被壓縮: ${metadata.width}x${metadata.height} -> ${newWidth}x${Math.round(
+						(metadata.height * newWidth) / metadata.width
+					)}`
+				)
+			}
+		}
+
+		await imageProcessor.webp({ quality: CONFIG.quality }).toFile(webpPath)
 
 		if (CONFIG.verbose) {
 			console.log(`轉換成功: ${path.relative(CONFIG.searchDir, imagePath)}`)
