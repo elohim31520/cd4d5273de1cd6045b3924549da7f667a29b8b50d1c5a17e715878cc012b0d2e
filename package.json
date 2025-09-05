@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "astro build",
+		"build": "gulp",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
@@ -28,6 +28,8 @@
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.13",
 		"classnames": "^2.5.1",
+		"gulp": "^5.0.1",
+		"gulp-cli": "^3.1.0",
 		"prettier": "^3.6.2",
 		"prettier-plugin-astro": "^0.14.1",
 		"sharp": "^0.33.4",
