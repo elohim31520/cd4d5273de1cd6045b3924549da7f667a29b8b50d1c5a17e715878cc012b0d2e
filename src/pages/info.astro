@@ -1,15 +1,15 @@
 ---
 import Container from '@/components/container.astro'
 import Postlist from '@/components/postlist.astro'
-import Layout2 from '@/layouts/Layout2.astro'
+import Layout from '@/layouts/Layout.astro'
 import Pagetitle from '@/components/pagetitle.astro'
 import { getInfoPosts } from '@/utils/content'
 ---
 
-<Layout2 title="資訊">
+<Layout title="產業">
 	<Container>
 		<Pagetitle>
-			<Fragment slot="title">資訊</Fragment>
+			<Fragment slot="title">產業資訊</Fragment>
 			<Fragment slot="desc"> </Fragment>
 		</Pagetitle>
 		<main>
@@ -18,4 +18,4 @@ import { getInfoPosts } from '@/utils/content'
 			</div>
 		</main>
 	</Container>
-</Layout2>
+</Layout>
