@@ -137,4 +137,10 @@ export const authors: Props[] = [
 		image: aimage,
 		bio: 'Dr. Alan Goldhammer是一位美國醫師，他專注於研究慢性疾病和逆轉慢性疾病的療法。',
 	},
+	{
+		name: 'Roman Yampolskiy',
+		slug: 'roman-yampolskiy',
+		image: aimage,
+		bio: 'Roman Yampolskiy是一位烏克蘭裔美國計算機科學家，以研究人工智能安全、偏見和超智能體控制而聞名。',
+	},
 ]
