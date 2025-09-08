@@ -143,4 +143,10 @@ export const authors: Props[] = [
 		image: aimage,
 		bio: 'Roman Yampolskiy是一位烏克蘭裔美國計算機科學家，以研究人工智能安全、偏見和超智能體控制而聞名。',
 	},
+	{
+		name: 'James Sexton',
+		slug: 'james-sexton',
+		image: aimage,
+		bio: 'James Sexton是一位紐約的家庭法律師，以專精於離婚案件，以及其幽默、直率且非傳統的行事風格而聞名。',
+	},
 ]
