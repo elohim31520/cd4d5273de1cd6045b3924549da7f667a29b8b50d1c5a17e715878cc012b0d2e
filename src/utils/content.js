@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content'
 
 export const latestPosts = (
 	await getCollection('blog', ({ data }) => {
-		return data.draft !== true
+		return data.draft !== true && !data.categories.includes('info')
 	})
 ).sort(
 	(a, b) =>
@@ -38,7 +38,7 @@ export const getInvestmentPosts = (
 		new Date(a.data.publishDate).valueOf()
 )
 
-export const getIframePosts = (
+export const getInfoPosts = (
 	await getCollection('blog', ({ data }) => {
 		return data.categories.includes('info')
 	})
