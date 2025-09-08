@@ -27,11 +27,6 @@ export const categories: Props[] = [
 		color: 'blue',
 	},
 	{
-		title: 'Finance',
-		slug: 'finance',
-		color: 'green',
-	},
-	{
 		title: 'Philosophy',
 		slug: 'philosophy',
 		color: 'green',
@@ -72,16 +67,6 @@ export const categories: Props[] = [
 		color: 'orange',
 	},
 	{
-		title: 'Art & Culture',
-		slug: 'art-culture',
-		color: 'pink',
-	},
-	{
-		title: 'Mental Health',
-		slug: 'mental-health',
-		color: 'pink',
-	},
-	{
 		title: 'Culture',
 		slug: 'culture',
 		color: 'orange',
@@ -92,11 +77,6 @@ export const categories: Props[] = [
 		color: 'purple',
 	},
 	{
-		title: 'Crypto',
-		slug: 'crypto',
-		color: 'blue',
-	},
-	{
 		title: 'Investment',
 		slug: 'investment',
 		color: 'blue',
@@ -104,11 +84,6 @@ export const categories: Props[] = [
 	{
 		title: 'AI',
 		slug: 'ai',
-		color: 'red',
-	},
-	{
-		title: 'Neuroscience',
-		slug: 'neuroscience',
 		color: 'red',
 	},
 	{
