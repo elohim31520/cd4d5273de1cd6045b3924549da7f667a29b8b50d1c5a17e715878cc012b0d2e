@@ -12,7 +12,7 @@ import { getInfoPosts } from '@/utils/content'
 			<Fragment slot="title">產業資訊</Fragment>
 			<Fragment slot="desc"> </Fragment>
 		</Pagetitle>
-		<main>
+		<main class="overflow-x-clip">
 			<div class="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3">
 				{getInfoPosts.map((post) => <Postlist post={post} aspect="square" />)}
 			</div>
