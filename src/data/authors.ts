@@ -78,6 +78,12 @@ export const authors: Props[] = [
 		bio: '由 Google 開發的大型語言模型。',
 	},
 	{
+		name: 'Grok',
+		slug: 'grok',
+		image: aimage,
+		bio: '由 X AI 開發的大型語言模型。',
+	},
+	{
 		name: 'Alex Hormozi',
 		slug: 'alex-hormozi',
 		image: aimage,
@@ -148,5 +154,11 @@ export const authors: Props[] = [
 		slug: 'james-sexton',
 		image: aimage,
 		bio: 'James Sexton是一位紐約的家庭法律師，以專精於離婚案件，以及其幽默、直率且非傳統的行事風格而聞名。',
+	},
+	{
+		name: 'Paul Brunson',
+		slug: 'paul-brunson',
+		image: aimage,
+		bio: 'Paul Brunson 是一位屢獲殊榮的企業家、婚姻與關係專家，以主持電視節目《Married at First Sight》（在英國和美國播出）和《Celebs Go Dating》而聞名。',
 	},
 ]
