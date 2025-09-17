@@ -161,4 +161,10 @@ export const authors: Props[] = [
 		image: aimage,
 		bio: 'Paul Brunson 是一位屢獲殊榮的企業家、婚姻與關係專家，以主持電視節目《Married at First Sight》（在英國和美國播出）和《Celebs Go Dating》而聞名。',
 	},
+	{
+		name: 'Brian Johnson',
+		slug: 'brian-johnson',
+		image: aimage,
+		bio: 'Brian Johnson是一位美國企業家，透過嚴格的科學方法與生活紀律，致力於延緩人類老化。',
+	},
 ]
