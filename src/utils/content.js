@@ -47,3 +47,13 @@ export const getInfoPosts = (
 		new Date(b.data.publishDate).valueOf() -
 		new Date(a.data.publishDate).valueOf()
 )
+
+export const getHealthPosts = (
+	await getCollection('blog', ({ data }) => {
+		return data.categories.includes('health')
+	})
+).sort(
+	(a, b) =>
+		new Date(b.data.publishDate).valueOf() -
+		new Date(a.data.publishDate).valueOf()
+)
