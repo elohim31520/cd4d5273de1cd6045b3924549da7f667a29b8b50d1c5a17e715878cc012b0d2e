@@ -14,23 +14,33 @@ import { latestPosts } from '@/utils/content'
 
 <Layout title="">
 	<Container>
-		<main class="overflow-x-clip">
+		<main id="mobile-view" class="overflow-x-clip">
+			<div class="grid gap-10 mt-10">
+				{latestPosts.map((post) => <Postlist post={post} />)}
+			</div>
+		</main>
+		<main id="desktop-view" class="overflow-x-clip">
 			<div class="grid gap-10 lg:gap-10 md:grid-cols-2">
-				{
-					latestPosts
-						.slice(0, 2)
-						.map((post) => (
-							<Postlist post={post} aspect="landscape" preloadImage={true} />
-						))
-				}
+				{latestPosts.slice(0, 2).map((post) => <Postlist post={post} />)}
 			</div>
 			<div class="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3">
-				{
-					latestPosts
-						.slice(2)
-						.map((post) => <Postlist post={post} aspect="square" />)
-				}
+				{latestPosts.slice(2).map((post) => <Postlist post={post} />)}
 			</div>
 		</main>
 	</Container>
 </Layout>
+
+<style>
+	#desktop-view {
+		display: none;
+	}
+
+	@media (min-width: 768px) {
+		#mobile-view {
+			display: none;
+		}
+		#desktop-view {
+			display: block;
+		}
+	}
+</style>
