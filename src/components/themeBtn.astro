@@ -1,0 +1,35 @@
+---
+import { Icon } from 'astro-icon/components'
+import { ThemeSwitch } from 'astro-color-scheme'
+---
+
+<ThemeSwitch defaultTheme="system" strategy="button">
+	<div class="inline-flex items-center">
+		<button
+			id="theme-toggle"
+			type="button"
+			class="flex items-center justify-center w-10 h-10 text-gray-500 transition-colors duration-300 rounded-full focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-gray-400"
+			aria-label="Toggle theme"
+		>
+			<Icon name="heroicons:sun" class="w-6 h-6 sun-icon" />
+			<Icon name="heroicons:moon" class="w-6 h-6 moon-icon" />
+		</button>
+	</div>
+</ThemeSwitch>
+
+<style>
+	.sun-icon {
+		display: none;
+	}
+	.moon-icon {
+		display: block;
+	}
+
+	:global(html.dark) .sun-icon {
+		display: block;
+	}
+
+	:global(html.dark) .moon-icon {
+		display: none;
+	}
+</style>

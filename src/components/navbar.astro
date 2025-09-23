@@ -3,6 +3,7 @@ import Container from '@/components/container.astro'
 import logoImage from '@/assets/logo.png'
 import darkLogo from '@/assets/logo_dark.png'
 import { Image } from 'astro:assets'
+import ThemeBtn from '@/components/themeBtn.astro'
 
 interface Menu {
 	label: string
@@ -45,8 +46,6 @@ const rightmenu: Menu[] = [
 	// 	badge: 'new',
 	// },
 ]
-
-const mobilemenu: Menu[] = [...leftmenu, ...rightmenu]
 ---
 
 <Container>
@@ -76,10 +75,14 @@ const mobilemenu: Menu[] = [...leftmenu, ...rightmenu]
 					<Image src={darkLogo} alt="Logo" loading="eager" decoding="async" />
 				</a>
 
+				<div class="ml-auto md:absolute md:right-10">
+					<ThemeBtn />
+				</div>
+
 				<button
 					id="menu"
 					aria-label="Toggle Menu"
-					class="px-2 py-1 ml-auto text-gray-500 rounded-md md:hidden focus:text-blue-500 focus:outline-none dark:text-gray-300"
+					class="px-2 py-1 text-gray-500 rounded-md md:hidden focus:text-blue-500 focus:outline-none dark:text-gray-300"
 				>
 					<svg
 						class="w-6 h-6 fill-current"
