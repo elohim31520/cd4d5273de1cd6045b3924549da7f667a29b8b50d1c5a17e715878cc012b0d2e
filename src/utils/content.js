@@ -39,8 +39,8 @@ export const getInvestmentPosts = (
 )
 
 export const getInfoPosts = (
-	await getCollection('blog', ({ data }) => {
-		return data.categories.includes('info')
+	await getCollection('blog', ({ data, slug }) => {
+		return slug.startsWith('info/zh/') && data.categories.includes('info')
 	})
 ).sort(
 	(a, b) =>
