@@ -48,6 +48,16 @@ export const getInfoPosts = (
 		new Date(a.data.publishDate).valueOf()
 )
 
+export const getEnglishInfoPosts = (
+	await getCollection('blog', ({ data, slug }) => {
+		return slug.startsWith('info/en/') && data.categories.includes('info')
+	})
+).sort(
+	(a, b) =>
+		new Date(b.data.publishDate).valueOf() -
+		new Date(a.data.publishDate).valueOf()
+)
+
 export const getHealthPosts = (
 	await getCollection('blog', ({ data }) => {
 		return data.categories.includes('health')
