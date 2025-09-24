@@ -1,12 +1,12 @@
 ---
 import Container from '@/components/container.astro'
 import Postlist from '@/components/postlist.astro'
-import Layout from '@/layouts/Layout.astro'
+import EnglishLayout from '@/layouts/EnglishLayout.astro'
 import Pagetitle from '@/components/pagetitle.astro'
 import { getEnglishInfoPosts } from '@/utils/content'
 ---
 
-<Layout title="Industry">
+<EnglishLayout title="Industry">
 	<Container>
 		<Pagetitle>
 			<Fragment slot="title">Industry insights</Fragment>
@@ -22,4 +22,4 @@ import { getEnglishInfoPosts } from '@/utils/content'
 			</div>
 		</main>
 	</Container>
-</Layout>
+</EnglishLayout>
