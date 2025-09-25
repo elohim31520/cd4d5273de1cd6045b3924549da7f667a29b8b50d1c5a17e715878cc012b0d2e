@@ -1,0 +1,22 @@
+---
+import Container from '@/components/container.astro'
+import Postlist from '@/components/postlist.astro'
+import Layout from '@/layouts/Layout.astro'
+import Pagetitle from '@/components/pagetitle.astro'
+import { getRelationshipPosts } from '@/utils/content'
+const posts = await getRelationshipPosts()
+---
+
+<Layout title="Spiritual">
+	<Container>
+		<Pagetitle>
+			<Fragment slot="title">兩性情感</Fragment>
+			<Fragment slot="desc"> </Fragment>
+		</Pagetitle>
+		<main class="overflow-x-clip">
+			<div class="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3">
+				{posts.map((post) => <Postlist post={post} aspect="square" />)}
+			</div>
+		</main>
+	</Container>
+</Layout>

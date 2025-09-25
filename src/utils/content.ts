@@ -9,7 +9,7 @@ function sortByTime(posts: CollectionEntry<'blog'>[]) {
 	)
 }
 
-export const getMainPosts = async () => {
+export async function getMainPosts() {
 	const posts = await getCollection('blog', ({ data }) => {
 		return data.draft !== true && !data.categories.includes('info')
 	})
@@ -68,3 +68,13 @@ export const getHealthPosts = (
 		new Date(b.data.publishDate).valueOf() -
 		new Date(a.data.publishDate).valueOf()
 )
+
+export async function getRelationshipPosts() {
+	const posts = await getCollection('blog', ({ data, slug }) => {
+		return (
+			slug.startsWith('relationship/') &&
+			data.categories.includes('relationship')
+		)
+	})
+	return sortByTime(posts)
+}
