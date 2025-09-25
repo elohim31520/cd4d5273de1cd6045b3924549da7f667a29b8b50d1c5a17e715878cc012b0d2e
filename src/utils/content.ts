@@ -1,29 +1,30 @@
 import { getCollection } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
 
-// Only return posts without `draft: true` in the frontmatter
+function sortByTime(posts: CollectionEntry<'blog'>[]) {
+	return posts.sort(
+		(a, b) =>
+			new Date(b.data.publishDate).valueOf() -
+			new Date(a.data.publishDate).valueOf()
+	)
+}
 
-export const latestPosts = (
-	await getCollection('blog', ({ data }) => {
+export const getMainPosts = async () => {
+	const posts = await getCollection('blog', ({ data }) => {
 		return data.draft !== true && !data.categories.includes('info')
 	})
-).sort(
-	(a, b) =>
-		new Date(b.data.publishDate).valueOf() -
-		new Date(a.data.publishDate).valueOf()
-)
+	return sortByTime(posts)
+}
 
-export const getSpiritualPosts = (
-	await getCollection('blog', ({ data }) => {
+export const getSpiritualPosts = async () => {
+	const posts = await getCollection('blog', ({ data }) => {
 		const requiredCategories = ['philosophy', 'mental-health', 'psychology']
 		return requiredCategories.some((category) =>
 			data.categories.includes(category)
 		)
 	})
-).sort(
-	(a, b) =>
-		new Date(b.data.publishDate).valueOf() -
-		new Date(a.data.publishDate).valueOf()
-)
+	return sortByTime(posts)
+}
 
 export const getInvestmentPosts = (
 	await getCollection('blog', ({ data }) => {

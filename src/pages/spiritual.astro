@@ -4,6 +4,7 @@ import Postlist from '@/components/postlist.astro'
 import Layout from '@/layouts/Layout.astro'
 import Pagetitle from '@/components/pagetitle.astro'
 import { getSpiritualPosts } from '@/utils/content'
+const posts = await getSpiritualPosts()
 ---
 
 <Layout title="Spiritual">
@@ -14,11 +15,7 @@ import { getSpiritualPosts } from '@/utils/content'
 		</Pagetitle>
 		<main class="overflow-x-clip">
 			<div class="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3">
-				{
-					getSpiritualPosts.map((post) => (
-						<Postlist post={post} aspect="square" />
-					))
-				}
+				{posts.map((post) => <Postlist post={post} aspect="square" />)}
 			</div>
 		</main>
 	</Container>

@@ -2,7 +2,7 @@
 import Container from '@/components/container.astro'
 import Postlist from '@/components/postlist.astro'
 import Layout from '@/layouts/Layout.astro'
-import { latestPosts } from '@/utils/content'
+import { getMainPosts } from '@/utils/content'
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 // const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 //   (a, b) =>
@@ -10,21 +10,22 @@ import { latestPosts } from '@/utils/content'
 //     new Date(a.frontmatter.publishDate).valueOf()
 // );
 // console.log(posts[0].frontmatter.image);
+const posts = await getMainPosts()
 ---
 
 <Layout title="">
 	<Container>
 		<main id="mobile-view" class="overflow-x-clip">
 			<div class="grid gap-10 mt-10">
-				{latestPosts.map((post) => <Postlist post={post} />)}
+				{posts.map((post) => <Postlist post={post} />)}
 			</div>
 		</main>
 		<main id="desktop-view" class="overflow-x-clip">
 			<div class="grid gap-10 lg:gap-10 md:grid-cols-2">
-				{latestPosts.slice(0, 2).map((post) => <Postlist post={post} />)}
+				{posts.slice(0, 2).map((post) => <Postlist post={post} />)}
 			</div>
 			<div class="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3">
-				{latestPosts.slice(2).map((post) => <Postlist post={post} />)}
+				{posts.slice(2).map((post) => <Postlist post={post} />)}
 			</div>
 		</main>
 	</Container>
