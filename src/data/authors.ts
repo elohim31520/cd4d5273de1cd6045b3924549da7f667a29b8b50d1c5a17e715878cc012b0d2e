@@ -167,4 +167,10 @@ export const authors: Props[] = [
 		image: aimage,
 		bio: 'Brian Johnson是一位美國企業家，透過嚴格的科學方法與生活紀律，致力於延緩人類老化。',
 	},
+	{
+		name: 'Dr. Robert Lustig',
+		slug: 'robert-lustig',
+		image: aimage,
+		bio: 'Dr. Robert Lustig 是「糖是有毒物質，是導致全球代謝性疾病和肥胖的主要元兇」這一觀點的權威倡導者。',
+	},
 ]
