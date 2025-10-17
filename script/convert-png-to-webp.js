@@ -1,4 +1,4 @@
-import fs from 'fs'
+import fs, { readFile } from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
@@ -11,7 +11,7 @@ const CONFIG = {
 	// WebP 品質 (0-100)
 	quality: 80, // 調整品質以取得更好的壓縮效果
 	// 是否保留原始 PNG 檔案
-	keepOriginal: true,
+	keepOriginal: false,
 	// 輸出資訊
 	verbose: true,
 	// 僅轉換未存在 WebP 版本的檔案
