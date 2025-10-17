@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
+Allow: /spiritual
+Allow: /relationship
+Allow: /investment
+Allow: /info
+Allow: /info-en
+Allow: /health
+Allow: /about
 
 Sitemap: https://lazypod.org/sitemap-0.xml
