@@ -78,3 +78,13 @@ export async function getRelationshipPosts() {
 	})
 	return sortByTime(posts)
 }
+
+export async function getSocialIssuesPosts() {
+	const posts = await getCollection('blog', ({ data, slug }) => {
+		return (
+			slug.startsWith('social-issues/') &&
+			data.categories.includes('social-issues')
+		)
+	})
+	return sortByTime(posts)
+}

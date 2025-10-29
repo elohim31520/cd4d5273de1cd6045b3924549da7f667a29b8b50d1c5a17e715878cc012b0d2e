@@ -173,4 +173,16 @@ export const authors: Props[] = [
 		image: aimage,
 		bio: 'Dr. Robert Lustig 是「糖是有毒物質，是導致全球代謝性疾病和肥胖的主要元兇」這一觀點的權威倡導者。',
 	},
+	{
+		name: 'Stephen J. Shaw',
+		slug: 'stephen-shaw',
+		image: aimage,
+		bio: 'Stephen J. Shaw 是一位數據科學家、商業顧問，也是研究人口統計學和出生率下降趨勢的專家。',
+	},
+	{
+		name: 'Bernie Sanders',
+		slug: 'bernie-sanders',
+		image: aimage,
+		bio: '民主社會主義的堅定倡導者，以要求經濟平等和政治改革而聞名。',
+	},
 ]
