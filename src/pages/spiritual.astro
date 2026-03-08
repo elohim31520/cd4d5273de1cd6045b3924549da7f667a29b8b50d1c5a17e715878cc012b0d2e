@@ -5,6 +5,10 @@ import Layout from '@/layouts/Layout.astro'
 import Pagetitle from '@/components/pagetitle.astro'
 import { getSpiritualPosts } from '@/utils/content'
 const posts = await getSpiritualPosts()
+
+const col1 = posts.filter((_, i) => i % 3 === 0)
+const col2 = posts.filter((_, i) => i % 3 === 1)
+const col3 = posts.filter((_, i) => i % 3 === 2)
 ---
 
 <Layout title="Spiritual">
@@ -13,9 +17,41 @@ const posts = await getSpiritualPosts()
 			<Fragment slot="title">探索心靈</Fragment>
 			<Fragment slot="desc"> </Fragment>
 		</Pagetitle>
-		<main class="overflow-x-clip">
-			<div class="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3">
-				{posts.map((post) => <Postlist post={post} aspect="square" />)}
+		<main class="overflow-x-clip mt-10">
+			<!-- Mobile: single column -->
+			<div class="flex flex-col gap-10 md:hidden">
+				{posts.map((post) => <Postlist post={post} />)}
+			</div>
+
+			<!-- Tablet: 2 columns -->
+			<div class="hidden md:flex xl:hidden gap-10">
+				<div class="flex flex-col gap-10 flex-1">
+					{
+						posts
+							.filter((_, i) => i % 2 === 0)
+							.map((post) => <Postlist post={post} />)
+					}
+				</div>
+				<div class="flex flex-col gap-10 flex-1">
+					{
+						posts
+							.filter((_, i) => i % 2 === 1)
+							.map((post) => <Postlist post={post} />)
+					}
+				</div>
+			</div>
+
+			<!-- Desktop: 3 columns -->
+			<div class="hidden xl:flex gap-10">
+				<div class="flex flex-col gap-10 flex-1">
+					{col1.map((post) => <Postlist post={post} />)}
+				</div>
+				<div class="flex flex-col gap-10 flex-1">
+					{col2.map((post) => <Postlist post={post} />)}
+				</div>
+				<div class="flex flex-col gap-10 flex-1">
+					{col3.map((post) => <Postlist post={post} />)}
+				</div>
 			</div>
 		</main>
 	</Container>
