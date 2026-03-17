@@ -96,4 +96,9 @@ export const categories: Props[] = [
 		slug: 'social-issues',
 		color: 'red',
 	},
+	{
+		title: 'Relationship',
+		slug: 'relationship',
+		color: 'pink',
+	}
 ]
