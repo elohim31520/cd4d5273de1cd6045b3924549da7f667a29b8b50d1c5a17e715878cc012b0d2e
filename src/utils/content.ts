@@ -10,8 +10,8 @@ function sortByTime(posts: CollectionEntry<'blog'>[]) {
 }
 
 export async function getMainPosts() {
-	const posts = await getCollection('blog', ({ data }) => {
-		return data.draft !== true && !data.categories.includes('info')
+	const posts = await getCollection('blog', ({ data, slug }) => {
+		return data.draft !== true && !slug.startsWith('info/en/')
 	})
 	return sortByTime(posts)
 }
