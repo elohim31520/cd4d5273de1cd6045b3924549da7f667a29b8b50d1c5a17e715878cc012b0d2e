@@ -1,5 +1,6 @@
 import { exec } from 'child_process'
 import { series, task } from 'gulp'
+import { rimraf } from 'rimraf'
 
 // 顯示子進程的輸出
 function runCommand(command) {
@@ -30,9 +31,24 @@ task('astroBuild', runCommand('astro build'))
 // 新增任務：壓縮 src/content 和 src/assets 資料夾
 task(
 	'compressSrcFolders',
-	runCommand(
-		'rm -f src_backup.7z && 7z a src_backup.7z ./src/content ./src/assets'
-	)
+	series(async () => {
+		try {
+			await rimraf('src_backup.7z')
+			exec(
+				'7z a src_backup.7z ./src/content ./src/assets',
+				(error, stdout, stderr) => {
+					if (error) {
+						console.error(`exec error: ${error}`)
+						return
+					}
+					console.log(`stdout: ${stdout}`)
+					console.error(`stderr: ${stderr}`)
+				}
+			)
+		} catch (error) {
+			console.error(`rimraf error: ${error}`)
+		}
+	})
 )
 
 // 預設任務：先轉換圖片，然後建置，最後壓縮指定的 src 資料夾
