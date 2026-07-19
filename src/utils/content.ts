@@ -11,7 +11,8 @@ function sortByTime(posts: CollectionEntry<'blog'>[]) {
 
 export async function getMainPosts() {
 	const posts = await getCollection('blog', ({ data, slug }) => {
-		return data.draft !== true && !slug.startsWith('info/en/')
+		// 首頁濾掉 info/en 跟 兩性關係文章
+		return data.draft !== true && !slug.startsWith('info/en/') && !data.categories?.includes('relationship')
 	})
 	return sortByTime(posts)
 }
