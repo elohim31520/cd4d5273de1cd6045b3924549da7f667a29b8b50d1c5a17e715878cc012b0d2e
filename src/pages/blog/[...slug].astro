@@ -104,16 +104,24 @@ const postCategories = post.data.categories
 	>
 		{
 			post.data.image && (
-				<Picture
+				// <Picture
+				// 	src={post.data.image}
+				// 	widths={[200, 400, 800]}
+				// 	sizes="(max-width: 640px) 90vw, 480px"
+				// 	width={1024}
+				// 	height={576}
+				// 	alt={post.data.title}
+				// 	loading="lazy"
+				// 	decoding="async"
+				// 	class="w-full h-full object-cover object-center"
+				// />
+				<Image
 					src={post.data.image}
-					widths={[200, 400, 800]}
-					sizes="(max-width: 640px) 90vw, 480px"
-					width={1024}
-					height={576}
 					alt={post.data.title}
-					loading="lazy"
-					decoding="async"
-					class="w-full h-full object-cover object-center"
+					loading={'lazy'}
+					decoding={'async'}
+					class="w-full h-full rounded-md"
+					format="webp"
 				/>
 			)
 		}
