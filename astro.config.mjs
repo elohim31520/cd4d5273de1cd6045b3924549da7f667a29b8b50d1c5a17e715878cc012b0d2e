@@ -9,6 +9,9 @@ import { remarkReadingTime } from './src/utils/all'
 
 export default defineConfig({
 	site: 'https://lazypod.org',
+	redirects: {
+		'/spiritual': '/self-growth',
+	},
 	markdown: {
 		remarkPlugins: [remarkReadingTime],
 		rehypePlugins: ['rehype-plugin-image-native-lazy-loading'],

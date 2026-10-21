@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Allow: /spiritual
+Allow: /self-growth
 Allow: /relationship
 Allow: /investment
 Allow: /info
