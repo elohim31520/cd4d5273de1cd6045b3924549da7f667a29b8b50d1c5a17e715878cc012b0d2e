@@ -11,6 +11,8 @@ export default defineConfig({
 	site: 'https://lazypod.org',
 	redirects: {
 		'/spiritual': '/self-growth',
+		'/info': '/tech',
+		'/info-en': '/tech-en',
 	},
 	markdown: {
 		remarkPlugins: [remarkReadingTime],

@@ -87,7 +87,7 @@ export const categories: Props[] = [
 		color: 'red',
 	},
 	{
-		title: 'Info',
+		title: '科技趨勢',
 		slug: 'info',
 		color: 'orange',
 	},
