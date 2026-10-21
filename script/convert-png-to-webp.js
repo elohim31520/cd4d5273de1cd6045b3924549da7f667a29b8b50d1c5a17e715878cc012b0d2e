@@ -229,8 +229,6 @@ async function main() {
 	}
 }
 
-main()
-
 async function checkWebpSize(imagePath) {
 	console.log('開始檢查現有 WebP 檔案尺寸...')
 	const webpFiles = await findWebpFiles(CONFIG.searchDir)
@@ -266,4 +264,6 @@ async function checkWebpSize(imagePath) {
 	}
 }
 
-checkWebpSize()
+// 先轉檔完成，再檢查 WebP 尺寸，避免兩者同時讀寫同一批檔案
+await main()
+await checkWebpSize()
